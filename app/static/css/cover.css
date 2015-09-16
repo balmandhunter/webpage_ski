@@ -20,16 +20,26 @@ a:hover {
   border: 1px solid #fff;
 }
 
+
 #search_but {
   background-color: #cc0000;
 }
 
 #the-cheese {
   font-size: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   margin-top: 30px;
   text-align: middle;
   font-weight: 500;
+  color: white;
+
+}
+
+#slogan {
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: 200;
+  color: #cccccc;
 
 }
 /*
@@ -57,10 +67,8 @@ html {
   background-image: '/static/img/main.jpg';
 }
 body {
-  color: #f2f2f2;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  color: #cccccc;
   text-align: middle;
-
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -157,6 +165,16 @@ body {
 
 #title {
   font-size: 46px;
+}
+
+#mybutton {
+  background-color: white;
+  color: black;
+}
+
+#eventForm .form-control-feedback {
+    top: 0;
+    right: -15px;
 }
 /*
  * Affix and center

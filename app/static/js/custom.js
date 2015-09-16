@@ -12,6 +12,7 @@
     IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
    
 ========================================================  */
+
 $(document).ready(function () {
 
     /*====================================
@@ -19,20 +20,20 @@ $(document).ready(function () {
     ======================================*/
 
 
-    $("#postcontent").submit(function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "subscribe.php",
-            data: $("#postcontent").serialize(),
-             success: function (response) {
-			  $('[name="email"]').val('');
-               // alert(response); // FOR ACTUAL RESPONSE
-			   alert('Thanks for  subscribing Us');
-            }
-        });
-        e.preventDefault();
-    });
+    // $("#postcontent").submit(function (e) {
+    //     e.preventDefault();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "subscribe.php",
+    //         data: $("#postcontent").serialize(),
+    //          success: function (response) {
+			 //  $('[name="email"]').val('');
+    //            // alert(response); // FOR ACTUAL RESPONSE
+			 //   alert('Thanks for  subscribing Us');
+    //         }
+    //     });
+    //     e.preventDefault();
+    // });
 
     // SCROLL SCRIPTS 
     $('.scroll-me a').bind('click', function (event) { //just pass scroll-me class and start scrolling
@@ -42,5 +43,27 @@ $(document).ready(function () {
         }, 1000, 'easeInOutQuad');
         event.preventDefault();
     });
+
+
+    //make the date calendar pop up and show the selected date 
+    $(".date-picker").datepicker();
+
+    $(".date-picker").on("change", function () {
+        var id = $(this).attr("id");
+        var val = $("label[for='" + id + "']").text();
+        $("#msg").text(val + " changed");
+    });
+
+    //Make the dropdown menu show the selected choice
+    $(function(){
+      
+      $(".dropdown-menu li a").click(function(){
+        
+        $(".btn:first-child").text($(this).text());
+         $(".btn:first-child").val($(this).text());
+      });
+
+    });
+
 
 });

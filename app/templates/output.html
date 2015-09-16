@@ -16,14 +16,8 @@
 
     <!-- Custom styles for this template -->
     <link href="/static/css/cover.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
-
-
 
     <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css" type="text/css">
-
-
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -76,46 +70,13 @@
             <p id="the-cheese" class="lead">Ski in Solitude</p>
             <p id="slogan">where the powder flows like wine</p>
             <div class="form-inline">
+              <form action="." method="POST" class="form-inline">
 
-
-
-        <div class="date-form">
-          <div class="control-group">
-              <label for="date-picker-2" class="control-label">Date:</label>
-              <div class="controls">
-                  <div class="input-group">
-                      <input id="date-picker-2" type="text" class="date-picker form-control" placeholder="12/25/2015">
-                      <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
-
-                      </label>
-                  </div>
-              </div>
-
-              <div class="dropdown">
-                  <button class="btn btn-primary dropdown-toggle" id="mybutton" type="button" data-toggle="dropdown">2 days before and after
-                  <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">1 day before</a></li>
-                    <li><a href="#">1 day after</a></li>
-                    <li><a href="#">1 day before and after</a></li>
-                    <li><a href="#">2 days before</a></li>
-                    <li><a href="#">2 days after</a></li>
-                    <li><a href="#">2 days before and after</a></li>
-                    <li><a href="#">3 days before</a></li>
-                    <li><a href="#">3 days after</a></li>
-                    <li><a href="#">3 days before and after</a></li>
-                    <li><a href="#">1 week before</a></li>
-                    <li><a href="#">1 week after</a></li>
-                    <li><a href="#">1 week before and after</a></li>
-                  </ul>
-              </div>
-              <button id="search_but" type="submit" onclick="parent.location='/2/3'" class="btn btn-theme">Search</button>
-
-          </div>   
-        </div>
-
-
-        <h2 class="subtitle">{{user}}</h2>                
+                  Date: <input type="text" name="text" class="form-inline" placeholder="12/25/2015" ><br>
+                  <button id="search_but" type="submit" value="Send" class="btn btn-theme">Search</button>
+              </form>
+            </div>
+            <h2 class="subtitle">{{user}}</h2>                
         </div>
 
         <div class="mastfoot" id="credit_parent">
@@ -136,11 +97,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/static/js/ie10-viewport-bug-workaround.js "></script>
-    <!-- datepicker js -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-
-    <script src="/static/js/custom.js" language="javascript"></script>
-
+    <script src="/static/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

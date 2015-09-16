@@ -11,18 +11,20 @@ def index():
        title = 'Home',
        user = user)
 
+   
 
-@app.route('/your_method_name', methods=['POST'])
-def addRegion():
-    return render_template("index.html",
+
+# @app.route('/', methods=['POST'])
+# def addRegion():
+#     return render_template("index.html",
+#        title = 'Home',
+#        user = 'processed_text tada!!!!')
+
+
+@app.route('/', methods=['POST'])
+def my_form_post():
+    return render_template("/output.html",
        title = 'Home',
-       user = 'tada!!!!')
+        user = 'processed_text tada!!!!')
 
-
-@app.route('/<x>/<y>')
-def maths(x,y):
-	sum = int(x)+int(y)
-	return render_template("index.html",
-       title = 'Home',
-       user = 'tada!!!!')
 
