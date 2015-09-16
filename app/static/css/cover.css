@@ -25,8 +25,12 @@ a:hover {
 }
 
 #the-cheese {
-  font-size: 16px;
-  margin-bottom: 15px;
+  font-size: 40px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: middle;
+  font-weight: 500;
+
 }
 /*
  * Base structure
@@ -39,10 +43,14 @@ body {
   background-image: url(/static/img/main.jpg);
 
 }
+#credit_parent {
+  text-align: left;
+}
 
 #credit {
   color: black;
   text-shadow: none;
+  text-align: center;
 }
 
 html {
@@ -50,8 +58,9 @@ html {
 }
 body {
   color: #f2f2f2;
-  text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  text-align: middle;
+
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -165,7 +174,7 @@ body {
   }
   /* Start the vertical centering */
   .site-wrapper-inner {
-    vertical-align: middle;
+    vertical-align: top;
   }
   /* Handle the widths */
   .masthead,
