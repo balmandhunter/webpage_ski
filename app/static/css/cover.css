@@ -6,7 +6,8 @@
 a,
 a:focus,
 a:hover {
-  color: #fff;
+  color: #4c4c4c;
+  text-shadow: none;
 }
 
 /* Custom default button */
@@ -19,7 +20,14 @@ a:hover {
   border: 1px solid #fff;
 }
 
+#search_but {
+  background-color: #cc0000;
+}
 
+#the-cheese {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
 /*
  * Base structure
  */
@@ -28,9 +36,20 @@ html,
 body {
   height: 100%;
   background-color: #333;
+  background-image: url(/static/img/main.jpg);
+
+}
+
+#credit {
+  color: black;
+  text-shadow: none;
+}
+
+html {
+  background-image: '/static/img/main.jpg';
 }
 body {
-  color: #fff;
+  color: #f2f2f2;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
@@ -63,8 +82,8 @@ body {
  * Header
  */
 .masthead-brand {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .masthead-nav > li {
@@ -127,7 +146,9 @@ body {
   color: rgba(255,255,255,.5);
 }
 
-
+#title {
+  font-size: 46px;
+}
 /*
  * Affix and center
  */
@@ -158,6 +179,6 @@ body {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 700px;
+    width: 1250px;
   }
 }
