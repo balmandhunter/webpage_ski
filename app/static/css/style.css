@@ -3,13 +3,17 @@
 
 body {
   background-color: #f2f2f2;
-    font-family: 'Lato', sans-serif;
+    font-family: font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;;
     font-weight: 300;
     font-size: 16px;
     color: #555;
     line-height: 1.6em;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
+}
+
+.form-inline {
+    width = 30%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,7 +42,7 @@ p {
 
 
 a {
-    color: #d6ee18;
+    color: #271248;
     word-wrap: break-word;
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
     -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -63,7 +67,7 @@ a:after {
     transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 .navbar-inverse .navbar-nav > li > a {
-    color: #c6d550;
+    color: #bfbfbf;
 }
 
 .alignleft {
@@ -79,8 +83,8 @@ a:after {
 
 .btn-theme  {
   color: #fff;
-  background-color: #fd680e;
-  border-color: #fd680e;
+  background-color: #cc0000;
+  border-color: #cc0000;
 }
 .btn-theme:hover  {
   color: #fff;
@@ -103,7 +107,9 @@ form.signup input.form-control:focus {
 
 a.navbar-brand {
 	color: #fff !important;
-	font-weight: 600;
+	font-weight: 500;
+  opacity: 1;
+
 }
 a.navbar-brand:hover {
     color: #ddd !important;
@@ -115,10 +121,10 @@ a.navbar-brand:hover {
 	background-color: #444;
 	background: url(../img/main.jpg) no-repeat center top;
 	margin-top: -20px;
-	padding-top: 150px;
+	padding-top: 105px;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 650px;
+	min-height: 656.5px;
 	width: 100%;
 	
     -webkit-background-size: 100%;
@@ -181,7 +187,7 @@ h2.subtitle {
 
 /* footer */
 #footer {
-	background: #fd680e;
+	background: #cc0000;
 	padding: 20px 0 5px;
 }
 

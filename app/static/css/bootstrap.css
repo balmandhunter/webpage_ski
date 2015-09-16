@@ -170,7 +170,7 @@ legend {
   padding: 0;
   border: 0;
 }
-textarea {
+textarea {navbar-inverse
   overflow: auto;
 }
 optgroup {
@@ -288,7 +288,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #428bca;
+  color: #271248;
   text-decoration: none;
 }
 a:hover,
@@ -3648,7 +3648,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 65px;
+  min-height: 75px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -3747,8 +3747,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: left;
   height: 40px;
   padding: 23px 15px;
-  font-size: 44px;
-  line-height: 20px;
+  font-size: 50px;
+  line-height: 28px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -3822,7 +3822,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-nav {
     float: left;
-    margin: 0;
+    margin: 25px;
   }
   .navbar-nav > li {
     float: left;
@@ -3862,7 +3862,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-form .form-control {
     display: inline-block;
-    width: auto;
+    width: 10px;
     vertical-align: middle;
   }
   .navbar-form .control-label {
@@ -4027,6 +4027,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-inverse {
   background-color: #222;
   border-color: #080808;
+  opacity: .9;
+
 }
 .navbar-inverse .navbar-brand {
   color: #999;

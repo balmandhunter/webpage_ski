@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" href="/static/img/favicon.png">
 
     <title>Ski in Solitude</title>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+	  <link href="/static/css/bootstrap-theme.css" rel="stylesheet">
 
     <!-- siimple style -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css" type="text/css">
 
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,8 +44,23 @@
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-			<li><a href="https://github.com/balmandhunter">GitHub</a></li>
-			<li><a href="http://www.linkedin.com/in/berkeleyalmandhunter">LinkedIn</a></li>
+      <li>
+          <a href="http://www.linkedin.com/in/berkeleyalmandhunter">
+            <i class="fa fa-linkedin fa-2x wow bounceIn"></i>
+          </a>
+      </li>
+			<li><a href="https://twitter.com/BerkeleyAlmand">
+              <i class="fa fa-twitter fa-2x wow bounceIn" data-wow-delay=".1s"></i>
+                </a></li>
+      <li>
+          <a href="https:/github.com/balmandhunter">
+            <i class="fa fa-github fa-2x wow bounceIn"></i>
+          </a>
+      </li>
+      <li><a href="mailto:berkeleyalmandhunter@gmail.com">
+            <i class="fa fa-envelope-o fa-2x wow bounceIn" data-wow-delay=".1s"></i>
+          </a>
+      </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -55,15 +71,17 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<h2 class="subtitle">Maximize your bliss by avoiding the crowds</h2>
-					<form class="form-inline signup" role="form">
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Winter Park, CO">
-					  </div>
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="01/08/2016">
-					  </div>
-					  <button type="submit" class="btn btn-theme">Search</button>
-					</form>					
+					<div class="form-group">
+            <label for="usr">Resort:</label>
+              <input type="text" class="form-inline" id="usr" placeholder="Winter Park, CO">
+            </div>
+          <div class="form-inline">
+            <label for="pwd">Date:</label>
+              <input type="date" class="form-control" id="pwd" placeholder="01/08/2016">
+          </div>
+					 <button type="submit" class="btn btn-theme">Search</button>
+
+          <h2 class="subtitle">{{user}}</h2>				
 				</div>
 
 				</div>
@@ -87,6 +105,6 @@
 	</div>
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
   </body>
 </html>
