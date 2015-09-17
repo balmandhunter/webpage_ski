@@ -26,33 +26,42 @@ a:hover {
 }
 
 #the-cheese {
-  font-size: 40px;
+  font-size: 60px;
   margin-bottom: 5px;
-  margin-top: 30px;
-  text-align: middle;
+  margin-top: 5px;
+  margin-left: 50px;
+  text-align: left;
   font-weight: 500;
   color: white;
 
 }
 
 #slogan {
-  font-size: 16px;
+  font-size: 26px;
   margin-bottom: 30px;
   font-weight: 200;
   color: #cccccc;
+  text-align: left;
+  margin-left: 30px;
 
 }
 /*
  * Base structure
  */
 
-html,
-body {
-  height: 100%;
-  background-color: #333;
-  background-image: url(/static/img/main.jpg);
-
+#wrapper{
+  background-size: 100%;
+  background-image:url("/static/img/main.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
 }
+#wrapper_output{
+  background-image:url("/static/img/main.jpg");
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: 4000px;
+}
+
 #credit_parent {
   text-align: left;
 }
@@ -63,12 +72,10 @@ body {
   text-align: center;
 }
 
-html {
-  background-image: '/static/img/main.jpg';
-}
+
 body {
+  margin: 0;
   color: #cccccc;
-  text-align: middle;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
