@@ -45,25 +45,12 @@ $(document).ready(function () {
     });
 
 
-    //make the date calendar pop up and show the selected date 
-    $(".date-picker").datepicker();
-
-    $(".date-picker").on("change", function () {
-        var id = $(this).attr("id");
-        var val = $("label[for='" + id + "']").text();
-        $("#msg").text(val + " changed");
+    $("#date-picker-2").datepicker({ 
+    onSelect: function(selected) {
+    $("#date-picker-2").datepicker("option","minDate", selected)
+    }
     });
 
-    //Make the dropdown menu show the selected choice
-    $(function(){
-      
-      $(".dropdown-menu li a").click(function(){
-        
-        $(".btn:first-child").text($(this).text());
-         $(".btn:first-child").val($(this).text());
-      });
-
-    });
 
 
 });

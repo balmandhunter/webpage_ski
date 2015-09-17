@@ -153,6 +153,9 @@ body {
   font-weight: bold;
 }
 
+.btn-theme{
+  background-color: red;
+}
 
 /*
  * Footer

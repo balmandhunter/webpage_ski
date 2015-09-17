@@ -31,16 +31,23 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+
+    //Make the dropdown menu show the selected choice
+   
+    function run() {
+        document.getElementById("ttime").value = document.getElementById("dropdownMenu").value;
+    }
+    
+    </script>
+
   </head>
 
   <body>
 
     <div class="site-wrapper">
-
       <div class="site-wrapper-inner">
-
         <div class="cover-container">
-
           <div class="masthead clearfix">
             <div class="inner">
               <nav>
@@ -71,63 +78,58 @@
           </div>
 
 
-
         <div class="col-lg-12">
             <p id="the-cheese" class="lead">Ski in Solitude</p>
-            <p id="slogan">where the powder flows like wine</p>
-            <div class="form-inline">
+            <p id="slogan">The slope less traveled</p>
 
 
-
-        <div class="date-form">
-          <div class="control-group">
-              <label for="date-picker-2" class="control-label">Date:</label>
-              <div class="controls">
+        <form method="get" action="/output" class='form-inline' name="input">
+             <label for="date-picker-2" class="control-label">Date:</label>
+            <div class="form-group" width=50%>
                   <div class="input-group">
-                      <input id="date-picker-2" type="text" class="date-picker form-control" placeholder="12/25/2015">
+                      <input id="date-picker-2" name='date-picker-2' type="text" class="date-picker form-control" placeholder="MM/DD/YYYY">
                       <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
-
                       </label>
                   </div>
               </div>
+        
+            <div class="form-group" width=50%>
+                <label for="ttime">Flexibility:</label>
+                <select id="dropdownMenu" onchange="run()"> 
+                    <option value="0"> &nbsp;&nbsp;1 day before&nbsp; </option>
+                    <option value="1"> &nbsp;&nbsp;1 day before and after&nbsp; </option>
+                    <option value="2"> &nbsp;&nbsp;1 day after&nbsp; </option>
+                    <option value="3"> &nbsp;&nbsp;2 days before &nbsp; </option>
+                    <option value="4"> &nbsp;&nbsp;2 days before and after&nbsp; </option>
+                    <option value="5"> &nbsp;&nbsp;2 days after&nbsp; </option>
+                    <option value="6"> &nbsp;&nbsp;3 days before&nbsp; </option>
+                    <option value="7"> &nbsp;&nbsp;3 days before and after&nbsp; </option>
+                    <option value="8"> &nbsp;&nbsp;3 days after&nbsp; </option>
+                    <option value="9"> &nbsp;&nbsp;1 week before&nbsp; </option>
+                    <option value="10"> &nbsp;&nbsp;1 week before and after&nbsp; </option>
+                    <option value="11"> &nbsp;&nbsp;1 week after&nbsp; </option>
+                </select>
+                <br>
+            <input type="hidden" class=text-center type="number" id="ttime" name="ttime" placeholder="0">
+            </div>
+            <div class="form-group">
+              <br>
+              <button type="submit" class="btn btn-default">find accommodation</button>
+            </div>
 
-              <div class="dropdown">
-                  <button class="btn btn-primary dropdown-toggle" id="mybutton" type="button" data-toggle="dropdown">2 days before and after
-                  <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">1 day before</a></li>
-                    <li><a href="#">1 day after</a></li>
-                    <li><a href="#">1 day before and after</a></li>
-                    <li><a href="#">2 days before</a></li>
-                    <li><a href="#">2 days after</a></li>
-                    <li><a href="#">2 days before and after</a></li>
-                    <li><a href="#">3 days before</a></li>
-                    <li><a href="#">3 days after</a></li>
-                    <li><a href="#">3 days before and after</a></li>
-                    <li><a href="#">1 week before</a></li>
-                    <li><a href="#">1 week after</a></li>
-                    <li><a href="#">1 week before and after</a></li>
-                  </ul>
-              </div>
-              <button id="search_but" type="submit" onclick="parent.location='/2/3'" class="btn btn-theme">Search</button>
-
-          </div>   
-        </div>
+        </form>
 
 
-        <h2 class="subtitle">{{user}}</h2>                
-        </div>
+          <h2 class="subtitle">{{user}}</h2>                
+          </div>
 
-        <div class="mastfoot" id="credit_parent">
-          <div class="inner" id="credit">
-            <p>Application developed by <a href="http://www.berkeleyalmandhunter.com/">Berkeley Almand-Hunter</a></p>
+          <div class="mastfoot" id="credit_parent">
+            <div class="inner" id="credit">
+              <p>Application developed by <a href="http://www.berkeleyalmandhunter.com/">Berkeley Almand-Hunter</a></p>
+            </div>
           </div>
         </div>
-
-        </div>
-
       </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript
