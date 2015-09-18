@@ -1,4 +1,4 @@
-﻿
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,10 +71,10 @@
                       </label>
                   </div>
               </div>
-        
+
             <div class="form-group" width=50%>
                 <label for="ttime">Flexibility:</label>
-                <select id="dropdownMenu" onchange="run()"> 
+                <select id="dropdownMenu" onchange="run()">
                     <option value="0"> &nbsp;&nbsp;1 day before&nbsp; </option>
                     <option value="1"> &nbsp;&nbsp;1 day before and after&nbsp; </option>
                     <option value="2"> &nbsp;&nbsp;1 day after&nbsp; </option>
@@ -93,14 +93,23 @@
             </div>
             <div class="form-group">
               <br>
-            <button id="search_but" type="submit" onclick="parent.location='/2/3'" class="btn btn-theme">Search</button>         
+            <button id="search_but" type="submit" onclick="parent.location='/output'" class="btn btn-theme">Search</button>
             </div>
 
         </form>
 
 
           <h2 class="subtitle">{{date2}}</h2>
-          <h2 class="subtitle">{{ time1}} </h2>                
+          </div>
+
+          <div class="post-preview">
+              <a href="tdf/tour_de_france.html" class="portfolio-box" target="_blank">
+                  <p>
+                  Here's a plot!!!!!!!!!!!!!!!
+                  </p>
+                  <img src="{{pic1}}">
+
+              </a>
           </div>
 
           <div class="mastfoot" id="credit_parent">
