@@ -31,7 +31,7 @@
   <div class="masthead clearfix">
     <div class="inner">
       <nav>
-        <ul class="nav masthead-nav">
+        <ul class="nav masthead-nav" id="links">
           <li>
             <a href="http://www.linkedin.com/in/berkeleyalmandhunter">
               <i class="fa fa-linkedin fa-2x wow bounceIn"></i>
@@ -60,8 +60,12 @@
     <div class="col-lg-12">
       <p id="the-cheese" class="lead">Ski in Solitude</p>
       <p id="slogan">Helping you find the slope less travelled</p>
+    </div>
+
+
+    <div class="col-lg-12" id="form_row">
       <form method="get" action="/output" class='form-inline' name="input">
-        <label for="date-picker-2" class="control-label">Date:</label>
+        <label for="date-picker-2" class="control-label" id="date-label">Date:</label>
         <div class="form-group" width=50%>
           <div class="input-group">
             <input id="date-picker-2" name='date-picker-2' type="text" class="date-picker form-control" placeholder="MM/DD/YYYY">
@@ -95,8 +99,9 @@
         </div>
       </form>
     </div>
-    <p>  </p>
-    <div id="bar_graph">
+
+
+    <div class="col-lg-12" id="bar_graph">
       <img src="/static/temp/fig1.png">
     </div>
 

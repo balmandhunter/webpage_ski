@@ -22,19 +22,30 @@ a:hover {
 
 #bar_graph {
   margin-right: 200px;
-  margin-left: 80px;
+  margin-left: 60px;
   border-top: 200px;
+}
+
+
+
+#date-label{
+  margin-left: 35px;
 }
 
 #search_but {
   background-color: #cc0000;
+  margin-bottom: 18px;
+}
+
+#links {
+  margin-right: 0px;
 }
 
 #the-cheese {
   font-size: 60px;
   margin-bottom: 5px;
   margin-top: 5px;
-  margin-left: 50px;
+  margin-left: 110px;
   text-align: left;
   font-weight: 500;
   color: white;
@@ -47,7 +58,7 @@ a:hover {
   font-weight: 200;
   color: #cccccc;
   text-align: left;
-  margin-left: 30px;
+  margin-left: 87px;
 }
 /*
  * Base structure
@@ -68,6 +79,11 @@ a:hover {
 
 #credit_parent {
   text-align: left;
+  margin-left: 100px;
+}
+
+#form_row{
+  margin-bottom: 50px;
 }
 
 #credit {

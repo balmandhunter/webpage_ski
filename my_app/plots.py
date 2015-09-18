@@ -99,18 +99,21 @@ def make_bar_chart(crowd, y_label, dates):
     ind = np.arange(N)  # the x locations for the groups
     width = 0.35      # the width of the bars
 
-    fig, ax = plt.subplots(figsize=(8, 4), facecolor='white', frameon=False)
+    fig, ax = plt.subplots(figsize=(7, 4), facecolor='white', frameon=False)
     #plt.box(on='off')
     rects1 = ax.bar(ind, crowd, width, color='#bdbdbd', edgecolor = "none")
 
     # add some text for labels, title and axes ticks
-    #ax.set_ylabel(y_label, size = label_size)
+    ax.set_ylabel(y_label, size = 18)
+    ax.set_xlabel("Date", size = 18)
     ax.set_title(' ')
-    ax.set_xticks(ind + width)
+    ax.set_xticks(ind + width/2)
+    ax.margins(0.1,0)
+    tick_labels = dates
+    plt.xticks(rotation=70)
+    ax.set_xticklabels(tick_labels, size = 10)
     ax.grid(False)
-    #plt.ylim([0,1.5])
-    #make the border lines lighter
-    [i.set_linewidth(0.1) for i in ax.spines.itervalues()]
+    plt.ylim([0,max(crowd)+ 0.2])
 
     plt.savefig('my_app/static/temp/fig1.png')
     plt.close()

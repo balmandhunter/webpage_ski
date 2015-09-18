@@ -72,7 +72,8 @@ def output():
         dates.append(date2 + pd.Timedelta(days=2))
         dates.append(date2 + pd.Timedelta(days=3))
     elif time1 == '9':
-        dates = [date2 - pd.Timedelta(days=6)]
+        dates = [date2 - pd.Timedelta(days=7)]
+        dates.append(date2 - pd.Timedelta(days=6))
         dates.append(date2 - pd.Timedelta(days=5))
         dates.append(date2 - pd.Timedelta(days=4))
         dates.append(date2 - pd.Timedelta(days=3))
@@ -80,7 +81,8 @@ def output():
         dates.append(date2 - pd.Timedelta(days=1))
         dates.append(date2)
     elif time1 == '10':
-        dates = [date2 - pd.Timedelta(days=6)]
+        dates = [date2 - pd.Timedelta(days=7)]
+        dates.append(date2 - pd.Timedelta(days=6))
         dates.append(date2 - pd.Timedelta(days=5))
         dates.append(date2 - pd.Timedelta(days=4))
         dates.append(date2 - pd.Timedelta(days=3))
@@ -93,6 +95,8 @@ def output():
         dates.append(date2 + pd.Timedelta(days=4))
         dates.append(date2 + pd.Timedelta(days=5))
         dates.append(date2 + pd.Timedelta(days=6))
+        dates.append(date2 + pd.Timedelta(days=7))
+
     elif time1 == '11':
         dates = [date2]
         dates.append(date2 + pd.Timedelta(days=1))
@@ -101,6 +105,7 @@ def output():
         dates.append(date2 + pd.Timedelta(days=4))
         dates.append(date2 + pd.Timedelta(days=5))
         dates.append(date2 + pd.Timedelta(days=6))
+        dates.append(date2 + pd.Timedelta(days=7))
 
     #import the data
     df = pd.DataFrame.from_csv('df_all_features.csv')
@@ -110,7 +115,11 @@ def output():
     feat = df.loc[dates]
     crowd = mdl.predict(feat)
 
-    pic1 = make_bar_chart(crowd, 'Crowd', dates)
+    date_plot = []
+    for i in range(0,len(dates)):
+        date_plot.append(str(dates[i])[5:10])
+
+    pic1 = make_bar_chart(crowd, 'Crowd', date_plot)
     return render_template("output.html", date2=dates, time1=dates, pic1=pic1)
 
 
