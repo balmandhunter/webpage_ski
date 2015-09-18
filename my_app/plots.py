@@ -6,6 +6,7 @@ import numpy as np
 from datetime import datetime
 import StringIO
 import random
+import os
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -95,11 +96,10 @@ def make_bar_chart(crowd, y_label, dates):
     a, b, label_size = plot_params()
     N = len(crowd)
 
-
     ind = np.arange(N)  # the x locations for the groups
     width = 0.35      # the width of the bars
 
-    fig, ax = plt.subplots(figsize=(20, 10), facecolor='white', frameon=False)
+    fig, ax = plt.subplots(figsize=(8, 4), facecolor='white', frameon=False)
     #plt.box(on='off')
     rects1 = ax.bar(ind, crowd, width, color='#bdbdbd', edgecolor = "none")
 
@@ -107,26 +107,15 @@ def make_bar_chart(crowd, y_label, dates):
     #ax.set_ylabel(y_label, size = label_size)
     ax.set_title(' ')
     ax.set_xticks(ind + width)
-    #tick_labels = dates.tolist()
-    #ax.set_xticklabels(tick_labels)
     ax.grid(False)
-    #plt.ylim([0,18])
+    #plt.ylim([0,1.5])
     #make the border lines lighter
     [i.set_linewidth(0.1) for i in ax.spines.itervalues()]
 
-    #remove the y axis
-    #frame1 = plt.gca()
-    #frame1.axes.get_yaxis().set_visible(False)
+    plt.savefig('my_app/static/temp/fig1.png')
+    plt.close()
+    return os.path.split('my_app/static/temp/fig1.png')[1]
 
-    #draw legend
-    #ax.legend( (rects1[0], rects2[0]), ('Base Features', 'Best Features') , loc = 'best', fontsize = label_size, frameon=False)
-
-    canvas=FigureCanvas(fig)
-    png_output = StringIO.StringIO()
-    canvas.print_png(png_output)
-    response=make_response(png_output.getvalue())
-    response.headers['Content-Type'] = 'image/png'
-    return response
 
 
 

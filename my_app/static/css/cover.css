@@ -20,6 +20,11 @@ a:hover {
   border: 1px solid #fff;
 }
 
+#bar_graph {
+  margin-right: 200px;
+  margin-left: 80px;
+  border-top: 200px;
+}
 
 #search_but {
   background-color: #cc0000;
@@ -43,7 +48,6 @@ a:hover {
   color: #cccccc;
   text-align: left;
   margin-left: 30px;
-
 }
 /*
  * Base structure

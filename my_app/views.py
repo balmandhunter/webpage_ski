@@ -7,11 +7,8 @@ import cPickle as pickle
 from plots import *
 
 def load_classifier(fname):
-   # load it again
    with open(fname, 'rb') as fid:
        clf = pickle.load(fid)
-       #clf = joblib.load(fname)
-
    return clf
 
 #tell flask which html file to open when on the homepage (www.skiinsolitude.com)
@@ -27,22 +24,94 @@ def index():
 @app.route('/output')
 def output():
     date1 = request.args.get('date-picker-2')
-    print date1
-
     time1 = request.args.get('ttime')
 
     #convert the input time to a python timestamp
     date2 = datetime.strptime(date1,"%m/%d/%Y")
+
+    if time1 == '0':
+        dates = [date2 - pd.Timedelta(days=1)]
+        dates.append(date2)
+    elif time1 == '1':
+        dates = [date2 - pd.Timedelta(days=1)]
+        dates.append(date2)
+        dates.append(date2 + pd.Timedelta(days=1))
+    elif time1 == '2':
+        dates = [date2]
+        dates.append(date2 + pd.Timedelta(days=1))
+    elif time1 == '3':
+        dates = [date2 - pd.Timedelta(days=2)]
+        dates.append(date2 - pd.Timedelta(days=1))
+        dates.append(date2)
+    elif time1 == '4':
+        dates = [date2 - pd.Timedelta(days=2)]
+        dates.append(date2 - pd.Timedelta(days=1))
+        dates.append(date2)
+        dates.append(date2 + pd.Timedelta(days=1))
+        dates.append(date2 + pd.Timedelta(days=2))
+    elif time1 == '5':
+        dates = [date2]
+        dates.append(date2 + pd.Timedelta(days=1))
+        dates.append(date2 + pd.Timedelta(days=2))
+    elif time1 == '6':
+        dates = [date2 - pd.Timedelta(days=3)]
+        dates.append(date2 - pd.Timedelta(days=2))
+        dates.append(date2 - pd.Timedelta(days=1))
+        dates.append(date2)
+    elif time1 == '7':
+        dates = [date2 - pd.Timedelta(days=3)]
+        dates.append(date2 - pd.Timedelta(days=2))
+        dates.append(date2 - pd.Timedelta(days=1))
+        dates.append(date2)
+        dates.append(date2 + pd.Timedelta(days=1))
+        dates.append(date2 + pd.Timedelta(days=2))
+        dates.append(date2 + pd.Timedelta(days=3))
+    elif time1 == '8':
+        dates = [date2]
+        dates.append(date2 + pd.Timedelta(days=1))
+        dates.append(date2 + pd.Timedelta(days=2))
+        dates.append(date2 + pd.Timedelta(days=3))
+    elif time1 == '9':
+        dates = [date2 - pd.Timedelta(days=6)]
+        dates.append(date2 - pd.Timedelta(days=5))
+        dates.append(date2 - pd.Timedelta(days=4))
+        dates.append(date2 - pd.Timedelta(days=3))
+        dates.append(date2 - pd.Timedelta(days=2))
+        dates.append(date2 - pd.Timedelta(days=1))
+        dates.append(date2)
+    elif time1 == '10':
+        dates = [date2 - pd.Timedelta(days=6)]
+        dates.append(date2 - pd.Timedelta(days=5))
+        dates.append(date2 - pd.Timedelta(days=4))
+        dates.append(date2 - pd.Timedelta(days=3))
+        dates.append(date2 - pd.Timedelta(days=2))
+        dates.append(date2 - pd.Timedelta(days=1))
+        dates.append(date2)
+        dates.append(date2 + pd.Timedelta(days=1))
+        dates.append(date2 + pd.Timedelta(days=2))
+        dates.append(date2 + pd.Timedelta(days=3))
+        dates.append(date2 + pd.Timedelta(days=4))
+        dates.append(date2 + pd.Timedelta(days=5))
+        dates.append(date2 + pd.Timedelta(days=6))
+    elif time1 == '11':
+        dates = [date2]
+        dates.append(date2 + pd.Timedelta(days=1))
+        dates.append(date2 + pd.Timedelta(days=2))
+        dates.append(date2 + pd.Timedelta(days=3))
+        dates.append(date2 + pd.Timedelta(days=4))
+        dates.append(date2 + pd.Timedelta(days=5))
+        dates.append(date2 + pd.Timedelta(days=6))
+
     #import the data
     df = pd.DataFrame.from_csv('df_all_features.csv')
     mdl = load_classifier('lin_regr.pkl')
 
     #get all of the features from the dataframe for the search day
-    feat = df.loc[date2]
-    crowd = mdl.predict(feat[1:])
+    feat = df.loc[dates]
+    crowd = mdl.predict(feat)
 
-    pic1 = make_bar_chart(crowd, 'Crowd', date2)
-    return render_template("output.html", date2=crowd, time1=time1, pic1=pic1)
+    pic1 = make_bar_chart(crowd, 'Crowd', dates)
+    return render_template("output.html", date2=dates, time1=dates, pic1=pic1)
 
 
 # @app.route('/', methods=['POST'])
