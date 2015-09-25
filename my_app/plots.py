@@ -101,7 +101,7 @@ def make_bar_chart(crowd, y_label, dates):
 
     fig, ax = plt.subplots(figsize=(7, 4), facecolor='white', frameon=False)
     #plt.box(on='off')
-    rects1 = ax.bar(ind, crowd, width, color='#bdbdbd', edgecolor = "none")
+    rects1 = ax.bar(ind, crowd, width, yerr = 1109, color='#bdbdbd', edgecolor = "none")
 
     # add some text for labels, title and axes ticks
     ax.set_ylabel(y_label, size = 18)

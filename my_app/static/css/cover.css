@@ -26,15 +26,30 @@ a:hover {
   border-top: 200px;
 }
 
+.form-inline {
+  color: #4c4c4c;
+}
 
+#date-picker-2 {
+  color: #4c4c4c;
+  width: 120px;
+}
 
-#date-label{
-  margin-left: 35px;
+#dropdownMenu{
+  color: #4c4c4c;
+  height: 35px;
+  margin-left: 15px;
+  width: 200px;
 }
 
 #search_but {
   background-color: #cc0000;
   margin-bottom: 18px;
+  color: #f2f2f2;
+  margin-left: 10px;
+  height: 35px;
+  width: 80px;
+  font-size: 16px;
 }
 
 #links {
@@ -43,26 +58,28 @@ a:hover {
 
 #the-cheese {
   font-size: 60px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-left: 110px;
+  margin-bottom: 0px;
+  margin-top: -40px;
+  margin-left: 80px;
   text-align: left;
   font-weight: 500;
   color: white;
-
+  z-index: 0.1;
 }
 
 #slogan {
   font-size: 26px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-weight: 200;
   color: #cccccc;
   text-align: left;
-  margin-left: 87px;
+  margin-left: 57px;
 }
-/*
- * Base structure
- */
+
+#form_row{
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
 
 #wrapper{
   background-size: 100%;
@@ -79,12 +96,10 @@ a:hover {
 
 #credit_parent {
   text-align: left;
-  margin-left: 100px;
+  margin-left: 30px;
+  margin-bottom: -20px;
 }
 
-#form_row{
-  margin-bottom: 50px;
-}
 
 #credit {
   color: black;
@@ -164,6 +179,7 @@ body {
   }
   .masthead-nav {
     float: right;
+    z-index: 5;
   }
 }
 
