@@ -1,3 +1,9 @@
+import matplotlib
+matplotlib.use('Agg')
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+from matplotlib.dates import DateFormatter
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
@@ -8,9 +14,6 @@ import StringIO
 import random
 import os
 
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
-from matplotlib.dates import DateFormatter
 from flask import make_response
 
 
