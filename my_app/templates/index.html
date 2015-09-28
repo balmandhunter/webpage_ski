@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css" type="text/css">
 
+
   <script type="text/javascript">
   function copyttime() {
     document.getElementById("ttime").value = document.getElementById("dropdownMenu").value;
@@ -78,17 +79,14 @@
 
 
         <div class="form-group" width=50%>
-          <br>
-
-          <select id="dropdownMenu2" onchange="copyresort()">
+          <select id="dropdownMenu2" class="form-control input-sm" onchange="copyresort()">
             <option value="0"> &nbsp;&nbsp;Winter Park, CO&nbsp; </option>
           </select>
           <input type="hidden" class=text-center type="number" id="resort" name="resort" placeholder="0">
         </div>
 
         <div class="form-group" width=20%>
-          <br>
-          <select id="dropdownMenu" onchange="copyttime()">
+          <select id="dropdownMenu" class="form-control input-sm" onchange="copyttime()">
             <option value="0"> &nbsp;&nbsp;1 day before&nbsp; </option>
             <option value="1"> &nbsp;&nbsp;1 day before and after&nbsp; </option>
             <option value="2"> &nbsp;&nbsp;1 day after&nbsp; </option>
@@ -101,17 +99,15 @@
             <option value="9"> &nbsp;&nbsp;1 week before&nbsp; </option>
             <option value="10"> &nbsp;&nbsp;1 week before and after&nbsp; </option>
             <option value="11"> &nbsp;&nbsp;1 week after&nbsp; </option>
+            <option value="12"> &nbsp;&nbsp;2 weeks before and after&nbsp; </option>
           </select>
-          <br>
           <input type="hidden" class=text-center type="number" id="ttime" name="ttime" placeholder="0">
         </div>
         <div class="form-group">
-          <br>
           <button id="search_but" type="submit" onclick="parent.location='/output'" class="btn btn-theme">Search</button>
         </div>
       </form>
     </div>
-
 
   <div class="mastfoot" id="credit_parent">
     <div class="inner" id="credit">
