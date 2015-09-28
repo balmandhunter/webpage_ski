@@ -187,9 +187,18 @@
           },
 
           series: [{
-              name: 'Percentage of Maximum',
+              name: 'Range',
               data: {{crowds|tojson|safe}}
-          }]
+          }, {
+            type: 'spline',
+            name: 'Predicted Crowd',
+            data: {{crowd_pred|tojson|safe}},
+            marker: {
+                lineWidth: 2,
+                lineColor: Highcharts.getOptions().colors[8],
+                fillColor: 'white'
+            }
+        }]
       });
   });
   </script>

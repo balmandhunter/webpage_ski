@@ -121,18 +121,17 @@ def output():
     #get all of the features from the dataframe for the search day
     feat = df.loc[dates]
     crowd = mdl.predict(feat)
+    crowd_list = [round(element,0) for element in crowd]
 
     crowd_range = []
     for this_crowd in crowd:
-        crowd_range.append([round(this_crowd - 10, 1), round(this_crowd + 10, 1)])
+        crowd_range.append([round(this_crowd - 10, 0), round(this_crowd + 10, 0)])
 
     date_plot = []
     for i in range(0,len(dates)):
         date_plot.append(str(dates[i])[5:10])
 
-
-    pic1 = make_bar_chart(crowd, 'Crowd', date_plot)
-    return render_template("output.html", crowds=crowd_range, dates=date_plot)
+    return render_template("output.html", crowds=crowd_range, crowd_pred=crowd_list, dates=date_plot)
 
 
 # @app.route('/', methods=['POST'])
