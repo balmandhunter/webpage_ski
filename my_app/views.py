@@ -5,6 +5,8 @@ from datetime import datetime
 import pandas as pd
 import cPickle as pickle
 from plots import *
+import json
+
 
 def load_classifier(fname):
    with open(fname, 'rb') as fid:
@@ -106,6 +108,11 @@ def output():
         dates.append(date2 + pd.Timedelta(days=5))
         dates.append(date2 + pd.Timedelta(days=6))
         dates.append(date2 + pd.Timedelta(days=7))
+    elif time1 == '12':
+        dates = [date2 - pd.Timedelta(days=14)]
+        for i in range(-13,15):
+            dates.append(date2 + pd.Timedelta(days=i))
+
 
     #import the data
     df = pd.DataFrame.from_csv('df_all_features.csv')
@@ -115,12 +122,17 @@ def output():
     feat = df.loc[dates]
     crowd = mdl.predict(feat)
 
+    crowd_range = []
+    for this_crowd in crowd:
+        crowd_range.append([round(this_crowd - 10, 1), round(this_crowd + 10, 1)])
+
     date_plot = []
     for i in range(0,len(dates)):
         date_plot.append(str(dates[i])[5:10])
 
+
     pic1 = make_bar_chart(crowd, 'Crowd', date_plot)
-    return render_template("output.html", date2=dates, time1=dates, pic1=pic1)
+    return render_template("output.html", crowds=crowd_range, dates=date_plot)
 
 
 # @app.route('/', methods=['POST'])

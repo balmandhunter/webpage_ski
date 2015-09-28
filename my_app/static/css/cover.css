@@ -20,6 +20,10 @@ a:hover {
   border: 1px solid #fff;
 }
 
+.form-group {
+  height: 40px;
+}
+
 #bar_graph {
   margin-right: 200px;
   margin-left: 60px;
@@ -35,11 +39,40 @@ a:hover {
   width: 120px;
 }
 
-#dropdownMenu{
+.highcharts-background{
+  opacity: 0.8;
+}
+
+.highcharts-title{
+  color: black;
+  font-weight: bold;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+  }
+
+#circ1 {
+  margin-left: 245px;
+}
+#circ2 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#dropdownMenu {
   color: #4c4c4c;
-  height: 35px;
+  height: 34px;
   margin-left: 15px;
-  width: 200px;
+}
+
+#dropdownMenu2 {
+  color: #4c4c4c;
+  height: 34px;
+  margin-left: 15px;
 }
 
 #search_but {
@@ -47,13 +80,13 @@ a:hover {
   margin-bottom: 18px;
   color: #f2f2f2;
   margin-left: 10px;
-  height: 35px;
+  height: 34px;
   width: 80px;
   font-size: 16px;
 }
 
 #links {
-  margin-right: 0px;
+  margin-right: 20px;
 }
 
 #the-cheese {
@@ -63,15 +96,17 @@ a:hover {
   margin-left: 80px;
   text-align: left;
   font-weight: 500;
-  color: white;
+  color: #f4f4f4;
   z-index: 0.1;
+  border-bottom: -10px;
 }
 
 #slogan {
   font-size: 26px;
   margin-bottom: 20px;
+  margin-top: 5px;
   font-weight: 200;
-  color: #cccccc;
+  color: #f4f4f4;
   text-align: left;
   margin-left: 57px;
 }
@@ -96,7 +131,7 @@ a:hover {
 
 #credit_parent {
   text-align: left;
-  margin-left: 30px;
+  margin-left: 120px;
   margin-bottom: -20px;
 }
 
@@ -108,7 +143,7 @@ a:hover {
 }
 
 
-body {
+.body {
   margin: 0;
   color: #cccccc;
 }

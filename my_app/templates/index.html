@@ -21,10 +21,14 @@
   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css" type="text/css">
 
   <script type="text/javascript">
-  function run() {
+  function copyttime() {
     document.getElementById("ttime").value = document.getElementById("dropdownMenu").value;
   }
+  function copyresort() {
+    document.getElementById("resort").value = document.getElementById("dropdownMenu2").value;
+  }
   </script>
+
 </head>
 
 <body id="wrapper">
@@ -54,14 +58,17 @@
 
     <div class="col-lg-8">
       <p id="the-cheese" class="lead">Ski in Solitude</p>
+      <img class = "circle" id="circ1"></img>
+      <img class = "circle" id="circ2"></img>
+      <img class = "circle"></img>
       <p id="slogan">Helping you find the slope less travelled</p>
     </div>
 
 
     <div class="col-lg-12" id="form_row">
       <form method="get" action="/output" class='form-inline' name="input">
-        
-        <div class="form-group" width=50%>
+
+        <div class="form-group" width=20%>
           <div class="input-group">
             <input id="date-picker-2" name='date-picker-2' type="text" class="date-picker form-control" placeholder="MM/DD/YYYY">
             <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
@@ -69,9 +76,19 @@
           </div>
         </div>
 
+
         <div class="form-group" width=50%>
-          
-          <select id="dropdownMenu" onchange="run()">
+          <br>
+
+          <select id="dropdownMenu2" onchange="copyresort()">
+            <option value="0"> &nbsp;&nbsp;Winter Park, CO&nbsp; </option>
+          </select>
+          <input type="hidden" class=text-center type="number" id="resort" name="resort" placeholder="0">
+        </div>
+
+        <div class="form-group" width=20%>
+          <br>
+          <select id="dropdownMenu" onchange="copyttime()">
             <option value="0"> &nbsp;&nbsp;1 day before&nbsp; </option>
             <option value="1"> &nbsp;&nbsp;1 day before and after&nbsp; </option>
             <option value="2"> &nbsp;&nbsp;1 day after&nbsp; </option>
