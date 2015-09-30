@@ -24,12 +24,6 @@ a:hover {
   height: 40px;
 }
 
-#bar_graph {
-  margin-right: 200px;
-  margin-left: 60px;
-  border-top: 200px;
-}
-
 .form-inline {
   color: #4c4c4c;
 }
@@ -37,6 +31,8 @@ a:hover {
 #date-picker-2 {
   color: #4c4c4c;
   width: 120px;
+  margin-left: -10px;
+  background-color: #f9f9f9;
 }
 
 .highcharts-background{
@@ -50,13 +46,26 @@ a:hover {
 
 .circle {
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: white;
+    width: 8px;
+    height: 8px;
+    background-color: #f9f9f9;
   }
 
+#logo1 {
+  width: 25px;
+  height: 25px;
+}
+#logo2 {
+  width: 25px;
+  height: 25px;
+}
+#logo3 {
+  width: 25px;
+  height: 25px;
+}
+
 #circ1 {
-  margin-left: 245px;
+  margin-left: 295px;
 }
 #circ2 {
   margin-left: 10px;
@@ -67,18 +76,20 @@ a:hover {
   color: #4c4c4c;
   height: 34px;
   margin-left: 15px;
+  background-color: #f9f9f9;
 }
 
 #dropdownMenu2 {
   color: #4c4c4c;
   height: 34px;
   margin-left: 15px;
+  background-color: #f9f9f9;
 }
 
 #search_but {
   background-color: #cc0000;
   margin-bottom: 18px;
-  color: #f2f2f2;
+  color: #f9f9f9;
   margin-left: 10px;
   height: 34px;
   width: 80px;
@@ -90,39 +101,39 @@ a:hover {
 }
 
 #the-cheese {
-  font-size: 60px;
-  margin-bottom: 0px;
-  margin-top: -40px;
-  margin-left: 80px;
+  font-size: 55px;
+  margin-bottom: -10px;
+  margin-top: -50px;
+  margin-left: 145px;
   text-align: left;
   font-weight: 500;
-  color: #f4f4f4;
+  color: #fff;
   z-index: 0.1;
   border-bottom: -10px;
 }
 
 #slogan {
-  font-size: 26px;
+  font-size: 22px;
   margin-bottom: 20px;
   margin-top: 5px;
   font-weight: 200;
-  color: #f4f4f4;
+  color: #f9f9f9;
   text-align: left;
-  margin-left: 57px;
+  margin-left: 139px;
 }
 
-#form_row{
+#form_row {
   margin-bottom: 50px;
   margin-left: 50px;
 }
 
-#wrapper{
+#wrapper {
   background-size: 100%;
   background-image:url("/static/img/main.jpg");
   background-size:cover;
   background-repeat:no-repeat;
 }
-#wrapper_output{
+#wrapper_output {
   background-image:url("/static/img/main.jpg");
   background-repeat:no-repeat;
   background-position: center;

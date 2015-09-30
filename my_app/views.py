@@ -13,6 +13,7 @@ def load_classifier(fname):
        clf = pickle.load(fid)
    return clf
 
+
 #tell flask which html file to open when on the homepage (www.skiinsolitude.com)
 @app.route('/')
 def index():
@@ -98,7 +99,6 @@ def output():
         dates.append(date2 + pd.Timedelta(days=5))
         dates.append(date2 + pd.Timedelta(days=6))
         dates.append(date2 + pd.Timedelta(days=7))
-
     elif time1 == '11':
         dates = [date2]
         dates.append(date2 + pd.Timedelta(days=1))
@@ -112,10 +112,14 @@ def output():
         dates = [date2 - pd.Timedelta(days=14)]
         for i in range(-13,15):
             dates.append(date2 + pd.Timedelta(days=i))
+    else:
+        dates = [date2 - pd.Timedelta(days=1)]
+        dates.append(date2)
 
 
     #import the data
     df = pd.DataFrame.from_csv('df_all_features.csv')
+    df_tick = pd.DataFrame.from_csv('lift_tickets.csv')
     mdl = load_classifier('lin_regr.pkl')
 
     #get all of the features from the dataframe for the search day
@@ -131,7 +135,10 @@ def output():
     for i in range(0,len(dates)):
         date_plot.append(str(dates[i])[5:10])
 
-    return render_template("output.html", crowds=crowd_range, crowd_pred=crowd_list, dates=date_plot)
+    tick_price1 = df_tick.loc[dates]
+    tick_price = list(tick_price1.price.values)
+
+    return render_template("output.html", crowds=crowd_range, crowd_pred=crowd_list, dates=date_plot, price=tick_price)
 
 
 # @app.route('/', methods=['POST'])

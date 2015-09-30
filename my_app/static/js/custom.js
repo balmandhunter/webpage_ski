@@ -1,6 +1,6 @@
 ﻿/*=============================================================
     Authour URL: www.designbootstrap.com
-    
+
     http://www.designbootstrap.com/
 
     License: MIT
@@ -10,13 +10,13 @@
     100% Free To use For Personal And Commercial Use.
 
     IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
-   
+
 ========================================================  */
 
 $(document).ready(function () {
 
     /*====================================
-          SUBSCRIPTION   SCRIPTS 
+          SUBSCRIPTION   SCRIPTS
     ======================================*/
 
 
@@ -35,7 +35,7 @@ $(document).ready(function () {
     //     e.preventDefault();
     // });
 
-    // SCROLL SCRIPTS 
+    // SCROLL SCRIPTS
     $('.scroll-me a').bind('click', function (event) { //just pass scroll-me class and start scrolling
         var $anchor = $(this);
         $('html, body').stop().animate({
@@ -45,9 +45,9 @@ $(document).ready(function () {
     });
 
 
-    $("#date-picker-2").datepicker({ 
+    $("#date-picker-2").datepicker({
     onSelect: function(selected) {
-    $("#date-picker-2").datepicker("option","minDate", selected)
+    $("#date-picker-2").datepicker("option","minDate", selected);
     }
     });
 
