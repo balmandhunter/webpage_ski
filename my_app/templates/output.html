@@ -260,7 +260,8 @@
       series: [{
         name: 'Runs Open Range',
         data: {{runs_range|tojson|safe}},
-        color: Highcharts.getOptions().colors[7]
+        color: Highcharts.getOptions().colors[7],
+        yAxis: 1
       },
       {
         type: 'spline',
@@ -272,6 +273,7 @@
           lineColor: Highcharts.getOptions().colors[1],
           fillColor: 'white'
         },
+        yAxis: 1
       },
       {
         name: 'Ticket Price',
