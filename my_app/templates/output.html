@@ -219,6 +219,7 @@
               crosshair: true
           }],
           yAxis: [{ // Primary yAxis
+            min: 74,
               labels: {
                   format: '${value}',
                   style: {
@@ -231,6 +232,7 @@
                       color: Highcharts.getOptions().colors[1]
                   }
               }
+
           }, { // Secondary yAxis
               title: {
                   text: '% of Runs Open',
@@ -249,15 +251,6 @@
           tooltip: {
               shared: true
           },
-          legend: {
-              layout: 'vertical',
-              align: 'left',
-              x: 120,
-              verticalAlign: 'top',
-              y: 100,
-              floating: true,
-              backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
-          },
             credits: {
                 enabled: false
             },
@@ -265,7 +258,7 @@
               name: '% of Runs Open',
               type: 'column',
               yAxis: 1,
-              data: {{price|tojson|safe}},
+              data: {{runs_open|tojson|safe}},
               tooltip: {
                   valueSuffix: '%'
               }
