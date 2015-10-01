@@ -29,18 +29,18 @@ def output():
     date2 = datetime.strptime(date1,"%m/%d/%Y")
     dates = get_dates_from_range_input(date2, time1)
 
-    df, df_tick, mdl, rfr_mdl, df_runs = import_data()
+    df, df_tick, mdl, df_runs = import_data()
     crowd_range, crowd_list = get_crowd_and_conf_interval(dates, df, mdl)
     df_runs.head()
 
-    runs_list, days = get_runs_open_and_conf_interval(dates, df_runs, rfr_mdl)
+    runs_list, days, runs_range = get_runs_open_and_conf_interval(dates, df_runs)
 
     date_plot = get_dates_for_plot(dates, days)
 
     tick_price1 = df_tick.loc[dates]
     tick_price = list(tick_price1.price.values)
 
-    return render_template("output.html", crowds=crowd_range, crowd_pred=crowd_list, dates=date_plot, price=tick_price, runs_open=runs_list)
+    return render_template("output.html", crowds=crowd_range, crowd_pred=crowd_list, dates=date_plot, price=tick_price, runs_open=runs_list, runs_range=runs_range)
 
 
 # @app.route('/', methods=['POST'])

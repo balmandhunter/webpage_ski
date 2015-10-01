@@ -33,29 +33,29 @@
 </head>
 
 <body id="wrapper">
-    <div class="inner">
-        <ul class="nav masthead-nav" id="links">
-          <li>
-            <a href="http://www.linkedin.com/in/berkeleyalmandhunter">
-              <i class="fa fa-linkedin fa-2x wow bounceIn"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/BerkeleyAlmand">
-              <i class="fa fa-twitter fa-2x wow bounceIn" data-wow-delay=".1s"></i>
-            </a></li>
-            <li>
-              <a href="https:/github.com/balmandhunter">
-                <i class="fa fa-github fa-2x wow bounceIn"></i>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:berkeleyalmandhunter@gmail.com">
-                <i class="fa fa-envelope-o fa-2x wow bounceIn" data-wow-delay=".1s"></i>
-              </a>
-            </li>
-          </ul>
-      </div>
+  <div class="inner">
+    <ul class="nav masthead-nav" id="links">
+      <li>
+        <a href="http://www.linkedin.com/in/berkeleyalmandhunter">
+          <i class="fa fa-linkedin fa-2x wow bounceIn"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/BerkeleyAlmand">
+          <i class="fa fa-twitter fa-2x wow bounceIn" data-wow-delay=".1s"></i>
+        </a></li>
+        <li>
+          <a href="https:/github.com/balmandhunter">
+            <i class="fa fa-github fa-2x wow bounceIn"></i>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:berkeleyalmandhunter@gmail.com">
+            <i class="fa fa-envelope-o fa-2x wow bounceIn" data-wow-delay=".1s"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
 
     <div class="col-lg-8">
       <p id="the-cheese" class="lead">Ski in Solitude</p>
@@ -114,12 +114,12 @@
     <div class="col-lg-5" id="plot2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 
-  <div class="mastfoot" id="credit_parent">
-    <div class="inner" id="credit">
-      <p>Application developed by <a href="http://www.berkeleyalmandhunter.com/">Berkeley Almand-Hunter</a></p>
+    <div class="mastfoot" id="credit_parent">
+      <div class="inner" id="credit">
+        <p>Application developed by <a href="http://www.berkeleyalmandhunter.com/">Berkeley Almand-Hunter</a></p>
+      </div>
     </div>
   </div>
-</div>
 
 
   <!-- Bootstrap core JavaScript
@@ -140,140 +140,150 @@
 
   <script language="javascript">
   $(document).ready(function () {
-      $('#plot').highcharts({
-          chart: {
-              type: 'columnrange'
-          },
+    $('#plot').highcharts({
+      chart: {
+        type: 'columnrange'
+      },
 
-          title: {
-              text: 'Crowd in Winter Park, CO'
-          },
+      title: {
+        text: 'Crowd in Winter Park, CO'
+      },
 
-          subtitle: {
-              text: 'Percentage of Maximum Crowd Size'
-          },
-          //this should be dates
-          xAxis: {
-              categories: {{dates|tojson|safe}}
-          },
+      subtitle: {
+        text: 'Percentage of Maximum Crowd Size'
+      },
+      //this should be dates
+      xAxis: {
+        categories: {{dates|tojson|safe}},
+        color: Highcharts.getOptions().colors[1]
+      },
 
-          yAxis: {
-              title: {
-                  text: 'Percentage of Maximum Skiers'
-              }
-          },
+      yAxis: {
+        title: {
+          text: 'Percentage of Maximum Skiers'
+        }
+      },
 
-          tooltip: {
-              valueSuffix: '%'
-          },
+      tooltip: {
+        valueSuffix: '%'
+      },
 
-          plotOptions: {
-              columnrange: {
-                  dataLabels: {
-                      enabled: false,
-                      formatter: function () {
-                          return this.y + '%';
-                      }
-                  }
-              }
-          },
-
-          legend: {
-              enabled: false
-          },
-
-          credits: {
-              enabled: false
-          },
-
-          series: [{
-              name: 'Range',
-              data: {{crowds|tojson|safe}}
-          }, {
-            type: 'spline',
-            name: 'Predicted Crowd',
-            data: {{crowd_pred|tojson|safe}},
-            marker: {
-                lineWidth: 2,
-                lineColor: Highcharts.getOptions().colors[8],
-                fillColor: 'white'
+      plotOptions: {
+        columnrange: {
+          dataLabels: {
+            enabled: false,
+            formatter: function () {
+              return this.y + '%';
             }
-        }]
-      });
+          }
+        }
+      },
+
+      legend: {
+        enabled: false
+      },
+
+      credits: {
+        enabled: false
+      },
+
+      series: [{
+        name: 'Range',
+        data: {{crowds|tojson|safe}},
+        color: Highcharts.getOptions().colors[7]
+      }, {
+        type: 'spline',
+        name: 'Predicted Crowd',
+        data: {{crowd_pred|tojson|safe}},
+        color: Highcharts.getOptions().colors[7],
+        marker: {
+          lineWidth: 2,
+          lineColor: Highcharts.getOptions().colors[1],
+          fillColor: 'white'
+        }
+      }]
+    });
   });
 
 
-    $(function () {
-      $('#plot2').highcharts({
-          chart: {
-              zoomType: 'xy'
-          },
-          title: {
-              text: 'Ticket Price and Percent of Runs Open'
-          },
-          subtitle: {
-              text: 'Winter Park, CO'
-          },
-          xAxis: [{
-              categories: {{dates|tojson|safe}},
-              crosshair: true
-          }],
-          yAxis: [{ // Primary yAxis
-            min: 74,
-              labels: {
-                  format: '${value}',
-                  style: {
-                      color: Highcharts.getOptions().colors[1]
-                  }
-              },
-              title: {
-                  text: 'Ticket Price',
-                  style: {
-                      color: Highcharts.getOptions().colors[1]
-                  }
-              }
+  $(function () {
+    $('#plot2').highcharts({
+      chart: {
+        type: 'columnrange'
+      },
+      title: {
+        text: 'Ticket Price and Percent of Runs Open'
+      },
+      subtitle: {
+        text: 'Winter Park, CO'
+      },
+      xAxis: [{
+        categories: {{dates|tojson|safe}},
+        crosshair: true,
+      }],
+      yAxis: [{ // Primary yAxis
+        min: 74,
+        labels: {
+          format: '${value}',
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
+        },
+        title: {
+          text: 'Ticket Price',
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
+        }
 
-          }, { // Secondary yAxis
-              title: {
-                  text: '% of Runs Open',
-                  style: {
-                      color: Highcharts.getOptions().colors[0]
-                  }
-              },
-              labels: {
-                  format: '{value} %',
-                  style: {
-                      color: Highcharts.getOptions().colors[0]
-                  }
-              },
-              opposite: true
-          }],
-          tooltip: {
-              shared: true
-          },
-            credits: {
-                enabled: false
-            },
-          series: [{
-              name: '% of Runs Open',
-              type: 'column',
-              yAxis: 1,
-              data: {{runs_open|tojson|safe}},
-              tooltip: {
-                  valueSuffix: '%'
-              }
-
-          },
-
-          {
-              name: 'Ticket Price',
-              type: 'spline',
-              data: {{price|tojson|safe}},
-              tooltip: {
-                  valueSuffix: '$'
-              }
-          }]
-      });
+      }, { // Secondary yAxis
+        title: {
+          text: '% of Runs Open',
+          style: {
+            color: Highcharts.getOptions().colors[7]
+          }
+        },
+        labels: {
+          format: '{value} %',
+          style: {
+            color: Highcharts.getOptions().colors[7]
+          }
+        },
+        opposite: true
+      }],
+      tooltip: {
+        shared: true
+      },
+      credits: {
+        enabled: false
+      },
+      series: [{
+        name: 'Runs Open Range',
+        data: {{runs_range|tojson|safe}},
+        color: Highcharts.getOptions().colors[7]
+      },
+      {
+        type: 'spline',
+        name: '% of Runs Open',
+        data: {{runs_open|tojson|safe}},
+        color: Highcharts.getOptions().colors[7],
+        marker: {
+          lineWidth: 2,
+          lineColor: Highcharts.getOptions().colors[1],
+          fillColor: 'white'
+        },
+      },
+      {
+        name: 'Ticket Price',
+        type: 'spline',
+        data: {{price|tojson|safe}},
+        tooltip: {
+          valueSuffix: '$'
+        },
+        color: Highcharts.getOptions().colors[1],
+        yAxis: 0
+      }]
+    });
   });
   </script>
 

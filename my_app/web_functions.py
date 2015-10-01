@@ -113,33 +113,37 @@ def get_crowd_and_conf_interval(dates, df, mdl):
     return crowd_range, crowd_list
 
 
-def get_runs_open_and_conf_interval(dates, df_runs, rfr_mdl):
+def get_runs_open_and_conf_interval(dates, df_runs):
     #get all of the features from the dataframe for the search day
     runs_list = list(df_runs.loc[dates].pred.values)
     runs_list = [round(run,0) for run in runs_list]
 
+    runs_range = []
+    for this_run in runs_list:
+        runs_range.append([this_run - 5, this_run + 5])
+
     days = []
     for date in dates:
         if df_runs.loc[date].day_of_week == 0:
-            days.append('Monday')
+            days.append('Mon:')
         elif df_runs.loc[date].day_of_week == 1:
-            days.append('Tuesday')
+            days.append('Tues:')
         elif df_runs.loc[date].day_of_week == 2:
-            days.append('Wednesday')
+            days.append('Wed:')
         elif df_runs.loc[date].day_of_week == 3:
-            days.append('Thursday')
+            days.append('Thurs:')
         elif df_runs.loc[date].day_of_week == 4:
-            days.append('Friday')
+            days.append('Fri:')
         elif df_runs.loc[date].day_of_week == 5:
-            days.append('Saturday')
+            days.append('Sat:')
         elif df_runs.loc[date].day_of_week == 6:
-            days.append('Sunday')
+            days.append('Sun:')
         else:
             days.append('error')
     # runs_range = []
     # for this_run in runs:
     #     runs_range.append([round(this_run - 10, 0), round(this_run + 10, 0)])
-    return runs_list, days
+    return runs_list, days, runs_range
 
 
 def load_classifier(fname):
@@ -153,5 +157,4 @@ def import_data():
     df_tick = pd.DataFrame.from_csv('lift_tickets.csv')
     df_runs = pd.DataFrame.from_csv('df_runs_open.csv')
     mdl = load_classifier('lin_regr.pkl')
-    rfr_mdl = load_classifier('rfr.pkl')
-    return df, df_tick, mdl, rfr_mdl, df_runs
+    return df, df_tick, mdl, df_runs
