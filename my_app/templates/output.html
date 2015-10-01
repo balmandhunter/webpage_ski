@@ -261,7 +261,10 @@
         name: 'Runs Open Range',
         data: {{runs_range|tojson|safe}},
         color: Highcharts.getOptions().colors[7],
-        yAxis: 1
+        yAxis: 1,
+        tooltip: {
+          valueSuffix: '%'
+        },
       },
       {
         type: 'spline',
@@ -273,6 +276,9 @@
           lineColor: Highcharts.getOptions().colors[1],
           fillColor: 'white'
         },
+        tooltip: {
+          valueSuffix: '%'
+        },
         yAxis: 1
       },
       {
@@ -280,7 +286,7 @@
         type: 'spline',
         data: {{price|tojson|safe}},
         tooltip: {
-          valueSuffix: '$'
+          valuePrefix: '$'
         },
         color: Highcharts.getOptions().colors[1],
         yAxis: 0
