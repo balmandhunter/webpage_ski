@@ -1,96 +1,38 @@
-from flask import render_template
 import cPickle as pickle
-from my_app import app
-from flask import request
-from datetime import datetime
+import datetime
 import pandas as pd
 
-def get_dates_from_range_input(date2, time1):
-    if time1 == '0':
-        dates = [date2 - pd.Timedelta(days=1)]
-        dates.append(date2)
-    elif time1 == '1':
-        dates = [date2 - pd.Timedelta(days=1)]
-        dates.append(date2)
-        dates.append(date2 + pd.Timedelta(days=1))
-    elif time1 == '2':
-        dates = [date2]
-        dates.append(date2 + pd.Timedelta(days=1))
-    elif time1 == '3':
-        dates = [date2 - pd.Timedelta(days=2)]
-        dates.append(date2 - pd.Timedelta(days=1))
-        dates.append(date2)
-    elif time1 == '4':
-        dates = [date2 - pd.Timedelta(days=2)]
-        dates.append(date2 - pd.Timedelta(days=1))
-        dates.append(date2)
-        dates.append(date2 + pd.Timedelta(days=1))
-        dates.append(date2 + pd.Timedelta(days=2))
-    elif time1 == '5':
-        dates = [date2]
-        dates.append(date2 + pd.Timedelta(days=1))
-        dates.append(date2 + pd.Timedelta(days=2))
-    elif time1 == '6':
-        dates = [date2 - pd.Timedelta(days=3)]
-        dates.append(date2 - pd.Timedelta(days=2))
-        dates.append(date2 - pd.Timedelta(days=1))
-        dates.append(date2)
-    elif time1 == '7':
-        dates = [date2 - pd.Timedelta(days=3)]
-        dates.append(date2 - pd.Timedelta(days=2))
-        dates.append(date2 - pd.Timedelta(days=1))
-        dates.append(date2)
-        dates.append(date2 + pd.Timedelta(days=1))
-        dates.append(date2 + pd.Timedelta(days=2))
-        dates.append(date2 + pd.Timedelta(days=3))
-    elif time1 == '8':
-        dates = [date2]
-        dates.append(date2 + pd.Timedelta(days=1))
-        dates.append(date2 + pd.Timedelta(days=2))
-        dates.append(date2 + pd.Timedelta(days=3))
-    elif time1 == '9':
-        dates = [date2 - pd.Timedelta(days=7)]
-        dates.append(date2 - pd.Timedelta(days=6))
-        dates.append(date2 - pd.Timedelta(days=5))
-        dates.append(date2 - pd.Timedelta(days=4))
-        dates.append(date2 - pd.Timedelta(days=3))
-        dates.append(date2 - pd.Timedelta(days=2))
-        dates.append(date2 - pd.Timedelta(days=1))
-        dates.append(date2)
-    elif time1 == '10':
-        dates = [date2 - pd.Timedelta(days=7)]
-        dates.append(date2 - pd.Timedelta(days=6))
-        dates.append(date2 - pd.Timedelta(days=5))
-        dates.append(date2 - pd.Timedelta(days=4))
-        dates.append(date2 - pd.Timedelta(days=3))
-        dates.append(date2 - pd.Timedelta(days=2))
-        dates.append(date2 - pd.Timedelta(days=1))
-        dates.append(date2)
-        dates.append(date2 + pd.Timedelta(days=1))
-        dates.append(date2 + pd.Timedelta(days=2))
-        dates.append(date2 + pd.Timedelta(days=3))
-        dates.append(date2 + pd.Timedelta(days=4))
-        dates.append(date2 + pd.Timedelta(days=5))
-        dates.append(date2 + pd.Timedelta(days=6))
-        dates.append(date2 + pd.Timedelta(days=7))
-    elif time1 == '11':
-        dates = [date2]
-        dates.append(date2 + pd.Timedelta(days=1))
-        dates.append(date2 + pd.Timedelta(days=2))
-        dates.append(date2 + pd.Timedelta(days=3))
-        dates.append(date2 + pd.Timedelta(days=4))
-        dates.append(date2 + pd.Timedelta(days=5))
-        dates.append(date2 + pd.Timedelta(days=6))
-        dates.append(date2 + pd.Timedelta(days=7))
-    elif time1 == '12':
-        dates = [date2 - pd.Timedelta(days=14)]
-        for i in range(-13,15):
-            dates.append(date2 + pd.Timedelta(days=i))
-    else:
-        dates = [date2 - pd.Timedelta(days=1)]
-        dates.append(date2)
+from flask import render_template
+from my_app import app
+from flask import request
 
-    return dates
+
+min_date = datetime.datetime(2015, 11, 15)
+max_date = datetime.datetime(2016, 4, 26)
+
+
+deltas = ((1, 0),
+          (1, 1),
+          (0, 1),
+          (2, 0),
+          (2, 2),
+          (0, 2),
+          (3, 0),
+          (3, 3),
+          (0, 3),
+          (7, 0),
+          (7, 7),
+          (0, 7),
+          (14, 14))
+
+
+def get_dates_from_range_input(date2, time1):
+    delta_begin = datetime.timedelta(deltas[time1][0])
+    delta_end = datetime.timedelta(deltas[time1][1])
+    date_begin = max(min_date, date2 - delta_begin)
+    date_end = min(max_date, date2 + delta_end)
+    days = (date_end - date_begin).days + 1
+    return [date_begin + datetime.timedelta(d) for d in range(days)]
 
 
 def get_dates_for_plot(dates, days):
@@ -140,9 +82,6 @@ def get_runs_open_and_conf_interval(dates, df_runs):
             days.append('Sun:')
         else:
             days.append('error')
-    # runs_range = []
-    # for this_run in runs:
-    #     runs_range.append([round(this_run - 10, 0), round(this_run + 10, 0)])
     return runs_list, days, runs_range
 
 
