@@ -109,9 +109,9 @@
       </form>
     </div>
 
-    <div class="col-lg-1"> </div>
-    <div class="col-lg-5" id="plot" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-    <div class="col-lg-5" id="plot2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div class="col-lg-6" id="plot" style="min-width: 310px; height: 500px; margin: 0 auto"></div>
+    <div class="col-lg-6" id="plot2" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
+    <div class="col-lg-6" id="plot3" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
 
 
     <div class="mastfoot" id="credit_parent">
@@ -222,49 +222,30 @@
       chart: {
         type: 'columnrange'
       },
-      title: {
-        text: 'Ticket Price and Percent of Runs Open'
+      legend: {
+        enabled: false
       },
-      subtitle: {
-        text: 'Winter Park, CO'
+      title: {
+        text: 'Percent of Runs Open'
       },
       xAxis: [{
         categories: {{dates|tojson|safe}},
         crosshair: true,
       }],
-      yAxis: [{ // Primary yAxis
-        min: 74,
-        labels: {
-          format: '${value}',
-          style: {
-            color: Highcharts.getOptions().colors[1]
-          }
-        },
-        title: {
-          text: 'Ticket Price',
-          style: {
-            color: Highcharts.getOptions().colors[1]
-          }
-        }
-
-      }, { // Secondary yAxis
+      yAxis: [{
         title: {
           text: '% of Runs Open',
           style: {
-            color: Highcharts.getOptions().colors[7]
+            color: Highcharts.getOptions().colors[1]
           }
         },
         labels: {
           format: '{value} %',
           style: {
-            color: Highcharts.getOptions().colors[7]
+            color: Highcharts.getOptions().colors[1]
           }
-        },
-        opposite: true
+        }
       }],
-      tooltip: {
-        shared: true
-      },
       credits: {
         enabled: false
       },
@@ -272,7 +253,6 @@
         name: 'Runs Open Range',
         data: {{runs_range|tojson|safe}},
         color: Highcharts.getOptions().colors[7],
-        yAxis: 1,
         tooltip: {
           valueSuffix: '%'
         },
@@ -290,22 +270,50 @@
         tooltip: {
           valueSuffix: '%'
         },
-        yAxis: 1
+      }]
+    });
+  });
+
+  $(function () {
+    $('#plot3').highcharts({
+      chart: {
+        type: 'line'
       },
-      {
+      legend: {
+        enabled: false
+      },
+      title: {
+        text: 'Lift Ticket Price'
+      },
+      xAxis: {
+        categories: {{dates|tojson|safe}},
+        crosshair: true
+      },
+      yAxis: {
+        title: {
+          text: 'Price (USD)'
+        },
+        labels: {
+          format: '${value}',
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
+        }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
         name: 'Ticket Price',
-        type: 'spline',
         data: {{price|tojson|safe}},
         tooltip: {
           valuePrefix: '$'
-        },
-        marker: {
-          lineWidth: 4,
-          lineColor: Highcharts.getOptions().colors[1],
-          fillColor: 'black'
-        },
-        color: Highcharts.getOptions().colors[1],
-        yAxis: 0
+        }
       }]
     });
   });
