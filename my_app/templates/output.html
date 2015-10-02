@@ -155,13 +155,24 @@
       //this should be dates
       xAxis: {
         categories: {{dates|tojson|safe}},
-        color: Highcharts.getOptions().colors[1]
+        style: {
+          color: Highcharts.getOptions().colors[1]
+        }
       },
 
       yAxis: {
         title: {
-          text: 'Percentage of Maximum Skiers'
-        }
+          text: 'Percentage of Maximum Skiers',
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
+        },
+        labels: {
+          format: '{value}%',
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
+        },
       },
 
       tooltip: {

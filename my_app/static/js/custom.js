@@ -44,13 +44,6 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
+    $("#date-picker-2").datepicker({ startDate: new Date('2015-11-16'), endDate: new Date('2016-04-27') });
 
-    $("#date-picker-2").datepicker({
-    onSelect: function(selected) {
-    $("#date-picker-2").datepicker("option","minDate", selected);
-    }
     });
-
-
-
-});
