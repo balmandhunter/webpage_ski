@@ -110,8 +110,8 @@
     </div>
 
     <div class="col-lg-6" id="plot" style="min-width: 310px; height: 500px; margin: 0 auto"></div>
-    <div class="col-lg-6" id="plot2" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
-    <div class="col-lg-6" id="plot3" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
+    <div class="col-lg-6" id="plot2" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+    <div class="col-lg-6" id="plot3" style="min-width: 310px; height: 225px; margin: 0 auto"></div>
 
 
     <div class="mastfoot" id="credit_parent">
@@ -146,15 +146,17 @@
       },
 
       title: {
-        text: 'Crowd in Winter Park, CO'
+        text: 'Crowd Size in Winter Park, CO'
       },
 
-      subtitle: {
-        text: 'Percentage of Maximum Crowd Size'
-      },
       //this should be dates
       xAxis: {
         categories: {{dates|tojson|safe}},
+        labels: {
+          style: {
+            fontSize:'15px'
+          }
+        },
         style: {
           color: Highcharts.getOptions().colors[1]
         }
@@ -162,15 +164,17 @@
 
       yAxis: {
         title: {
-          text: 'Percentage of Maximum Skiers',
+          text: 'Maximum Skiers (%)',
           style: {
-            color: Highcharts.getOptions().colors[1]
+            color: Highcharts.getOptions().colors[1],
+            fontSize:'16px'
           }
         },
         labels: {
           format: '{value}%',
           style: {
-            color: Highcharts.getOptions().colors[1]
+            color: Highcharts.getOptions().colors[1],
+            fontSize:'15px'
           }
         },
       },
@@ -226,23 +230,31 @@
         enabled: false
       },
       title: {
-        text: 'Percent of Runs Open'
+        text: 'Runs Open (%)',
+
       },
       xAxis: [{
         categories: {{dates|tojson|safe}},
         crosshair: true,
+        labels: {
+          style: {
+            fontSize:'15px'
+          }
+        }
       }],
       yAxis: [{
         title: {
-          text: '% of Runs Open',
+          text: 'Runs Open (%)',
           style: {
-            color: Highcharts.getOptions().colors[1]
+            color: Highcharts.getOptions().colors[1],
+            fontSize:'15px'
           }
         },
         labels: {
           format: '{value} %',
           style: {
-            color: Highcharts.getOptions().colors[1]
+            color: Highcharts.getOptions().colors[1],
+            fontSize:'15px'
           }
         }
       }],
@@ -259,7 +271,7 @@
       },
       {
         type: 'spline',
-        name: '% of Runs Open',
+        name: 'Runs Open (%)',
         data: {{runs_open|tojson|safe}},
         color: Highcharts.getOptions().colors[7],
         marker: {
@@ -287,25 +299,35 @@
       },
       xAxis: {
         categories: {{dates|tojson|safe}},
-        crosshair: true
+        crosshair: true,
+        fontSize:'16px',
+        labels: {
+          style: {
+            fontSize:'15px'
+          }
+        }
       },
       yAxis: {
         title: {
-          text: 'Price (USD)'
+          text: 'Price (USD)',
+          style: {
+            color: Highcharts.getOptions().colors[1],
+            fontSize:'15px'
+          }
         },
         labels: {
           format: '${value}',
           style: {
-            color: Highcharts.getOptions().colors[1]
+            color: Highcharts.getOptions().colors[1],
+            fontSize:'16px'
           }
         }
       },
       plotOptions: {
         line: {
           dataLabels: {
-            enabled: true
-          },
-          enableMouseTracking: false
+            enableMouseTracking: true
+          }
         }
       },
       series: [{
