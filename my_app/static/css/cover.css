@@ -28,30 +28,24 @@ a:hover {
   color: #4c4c4c;
 }
 
-
-
 .fa {
   color: #000028;
-  /*float: right;*/
   margin-right: 10px;
-  margin-bottom: 10px;
 }
 
-#linkedin {
-  margin-right: 110px;
+#right_stuff {
+  margin-right: 150px;
+  margin-top: 5px;
 }
 
 #about_me {
   color: #000028;
-  font-size: 25px;
-  margin-right: 0px;
-  margin-bottom: 15px;
+  font-size: 24px;
 }
 
 #slide_link {
   color: #000028;
-  font-size: 25px;
-  margin-right: 0px;
+  font-size: 24px;
   margin-bottom: 15px;
 }
 
@@ -59,23 +53,24 @@ a:hover {
   opacity: .8;
 }
 
-
-#links {
-  margin-right: 60px;
-}
-
 #the-cheese {
   color: #000028;
   font-weight: bold;
-  font-size: 40px;
-  margin-top: 2.5px;
-  margin-bottom: 2.5px;
+  font-size: 42px;
+  margin-top: 3px;
+  margin-bottom: -2px;
   margin-left: 150px;
   float:left;
 }
 
+.slogan1 {
+  margin-top: -5px;
+  margin-left: 138px;
+  margin-bottom: -2px;
+}
+
 #slogan {
-  font-size: 150%;
+  font-size: 20px;
   font-weight: 200;
   color: #f9f9f9;
 }
@@ -152,6 +147,7 @@ a:hover {
 #form_row {
   margin-top: 10px;
   margin-left: 50px;
+  margin-bottom: 50px;
 }
 
 #wrapper {
