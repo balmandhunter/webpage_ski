@@ -45,13 +45,14 @@ def get_dates_for_plot(dates, days):
 
 def get_crowd_and_conf_interval(dates, df, mdl):
     #get all of the features from the dataframe for the search day
-    feat = df.loc[dates]
-    crowd = mdl.predict(feat)
-    crowd_list = [round(element,0) for element in crowd]
+    crowd_list = list(df.loc[dates].pred.values)
+    crowd_list = [round(crowd,0) for crowd in crowd_list]
 
     crowd_range = []
-    for this_crowd in crowd:
-        crowd_range.append([round(this_crowd - 10, 0), round(this_crowd + 10, 0)])
+    num = 0
+    for this_crowd in crowd_list:
+        crowd_range.append([round(df.loc[dates[num]].lower, 0), round(df.loc[dates[num]].upper, 0)])
+        num += 1
     return crowd_range, crowd_list
 
 
@@ -61,8 +62,11 @@ def get_runs_open_and_conf_interval(dates, df_runs):
     runs_list = [round(run,0) for run in runs_list]
 
     runs_range = []
+    num = 0
     for this_run in runs_list:
-        runs_range.append([this_run - 5, this_run + 5])
+        runs_range.append([round(df_runs.loc[dates[num]].lower, 0), round(df_runs.loc[dates[num]].upper, 0)])
+        num += 1
+
 
     days = []
     for date in dates:
