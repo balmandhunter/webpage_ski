@@ -211,7 +211,7 @@
             },
 
             series: [{
-              name: 'Range',
+              name: '95% Confidence Interval',
               data: {{crowds|tojson|safe}},
               color: Highcharts.getOptions().colors[7],
               tooltip: {
@@ -280,7 +280,7 @@
             enabled: false
           },
           series: [{
-            name: 'Runs Open Range',
+            name: '95% Confidence Interval',
             data: {{runs_range|tojson|safe}},
             color: Highcharts.getOptions().colors[7],
             tooltip: {
