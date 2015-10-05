@@ -39,7 +39,7 @@ a:hover {
 
 #right_stuff {
   margin-right: 150px;
-  margin-top: 7px;
+  margin-top: 5px;
 }
 
 #slide_link {
@@ -52,32 +52,27 @@ a:hover {
   font-size: 20px;
 }
 
-
-
 .navbar-default {
   opacity: .8;
+  vertical-align: middle;
 }
 
 #the-cheese {
   color: #000028;
   font-weight: bold;
-  font-size: 42px;
+  font-size: 45px;
   margin-top: 1px;
   margin-bottom: -5px;
   margin-left: 150px;
   float:left;
 }
 
-.slogan1 {
-  margin-top: -5px;
-  margin-left: 138px;
-  margin-bottom: -2px;
-}
 
 #slogan {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 200;
-  color: #f9f9f9;
+  color: #000028;
+  margin-left: 150px;
 }
 
 #date-picker-2 {
@@ -184,10 +179,6 @@ html {
   text-align: center;
 }
 
-
-body {
-  background-color: none;
-}
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
