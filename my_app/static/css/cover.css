@@ -155,12 +155,33 @@ a:hover {
   margin-bottom: 50px;
 }
 
+html {
+  background: url(/static/img/main.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
 #wrapper {
   background-size: 100%;
   background-image:url("/static/img/main.jpg");
-  background-size:cover;
-  background-repeat:no-repeat;
-}
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}*/
 #wrapper_output {
   background-image:url("/static/img/main.jpg");
   background-repeat:no-repeat;
