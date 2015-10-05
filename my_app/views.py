@@ -47,4 +47,4 @@ def output():
     tick_price1 = df_tick.loc[dates]
     tick_price = list(tick_price1.price.values)
 
-    return render_template("output.html", crowds=crowd_range, crowd_pred=crowd_list, dates=date_plot, price=tick_price, runs_open=runs_list, runs_range=runs_range)
+    return render_template("output.html", crowds=crowd_range, crowd_pred=crowd_list, dates=date_plot, price=tick_price, runs_open=runs_list, runs_range=runs_range, def_date=date1)
